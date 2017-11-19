@@ -16835,7 +16835,7 @@ Jeżeli wystąpi wyjątek, należy go obsłużyć i wyświetlić klasę wyjątku
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span>
@@ -16855,20 +16855,20 @@ Jeżeli wystąpi wyjątek, należy go obsłużyć i wyświetlić klasę wyjątku
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>&gt;&gt;&gt; qwerty
+<pre>&gt;&gt;&gt; asdf
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;qwerty&#39;</pre>
+<pre>&#39;asdf&#39;</pre>
 </div>
 
 </div>
@@ -16920,6 +16920,47 @@ Jeżeli wystąpi wyjątek, należy go obsłużyć i wyświetlić klasę wyjątku
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">repl</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; &#39;</span><span class="p">)</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rest</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">rest</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+            <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;eval&#39;</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyboardInterrupt</span>
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Invalid command.&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bye&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -16932,7 +16973,7 @@ Jeżeli wystąpi wyjątek, należy go obsłużyć i wyświetlić klasę wyjątku
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">repl</span><span class="p">()</span>
@@ -16956,11 +16997,13 @@ Jeżeli wystąpi wyjątek, należy go obsłużyć i wyświetlić klasę wyjątku
 4
 &gt;&gt;&gt; eval 2/0
 ZeroDivisionError
+&gt;&gt;&gt; eval &#39;asdf&#39; + &#39;qwer&#39;
+asdfqwer
+&gt;&gt;&gt; 
 &gt;&gt;&gt; asdf
 Invalid command.
-&gt;&gt;&gt; 
+Bye
 &gt;&gt;&gt; exit
-Bye!
 </pre>
 </div>
 </div>
@@ -17411,6 +17454,25 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">limit</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">l</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -17421,7 +17483,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;asdfghijk&#39;</span><span class="p">)</span>
@@ -17437,7 +17499,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[37]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -17454,7 +17516,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;asdfghijk&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -17470,7 +17532,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[38]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -17487,7 +17549,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;asdfghijk&#39;</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -17503,7 +17565,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[39]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -17520,7 +17582,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;asdfghijk&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -17536,7 +17598,7 @@ Włączenie drugiej z nich powoduje, że zwracane jest tylko pierwsze pięć ele
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -18251,6 +18313,84 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">append_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">seq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">seq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">append_func</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;e&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">append_func</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;e&#39;, &#39;f&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -18262,6 +18402,20 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">append_func</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seq</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">seq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">seq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -18506,7 +18660,7 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -18594,7 +18748,7 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="nb">filter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -18610,7 +18764,7 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[45]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -18691,6 +18845,101 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18700,6 +18949,16 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">3</span>==0 or x%5==0, range(1001)))
+</pre></div>
+
+</div>
+</div>
+</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -18707,7 +18966,8 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 
 <div class="output_area">
 
-<div class="prompt"> </div>
+<div class="prompt output_prompt">Out[50]:</div>
+
 
 
 
@@ -18730,6 +18990,16 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">1000</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -18737,12 +19007,88 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 
 <div class="output_area">
 
-<div class="prompt"> </div>
+<div class="prompt output_prompt">Out[51]:</div>
+
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>1366</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9733;-Suma-parzystych-cyfr-2**1000">&#9733; Suma parzystych cyfr 2**1000<a class="anchor-link" href="#&#9733;-Suma-parzystych-cyfr-2**1000">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0, map(int, str(2**1000))))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>630</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">1000</span><span class="p">))</span>
+<span class="nb">sum</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0, digits))
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>630</pre>
 </div>
 
 </div>
@@ -18784,34 +19130,35 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">repl</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; &#39;</span><span class="p">)</span>
             <span class="n">tokens</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">command</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rest</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">rest</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+            <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;eval&#39;</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyboardInterrupt</span>
+            <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
                 <span class="k">pass</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">rest</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                    <span class="n">rest</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-                    
-                <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
-                    <span class="k">break</span>
-                <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;eval&#39;</span><span class="p">:</span>
-                    <span class="n">rest</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-                    <span class="k">try</span><span class="p">:</span>
-                        <span class="n">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
-                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                        <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Invalid command.&#39;</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Invalid command.&#39;</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
         <span class="k">pass</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Bye!&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bye&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -18828,6 +19175,66 @@ Funkcja powinna zwrócić listę z dodanym elementem.</p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">split_line</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+        <span class="n">rest</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>    
+        
+    <span class="k">return</span> <span class="n">command</span><span class="p">,</span> <span class="n">rest</span>
+
+<span class="k">def</span> <span class="nf">eval_command</span><span class="p">(</span><span class="n">rest</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        
+<span class="k">def</span> <span class="nf">exit_command</span><span class="p">(</span><span class="n">rest</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">KeyboardInterrupt</span>
+    
+<span class="k">def</span> <span class="nf">empty_command</span><span class="p">(</span><span class="n">rest</span><span class="p">):</span>
+    <span class="k">pass</span>
+    
+<span class="n">commands</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;eval&#39;</span><span class="p">:</span> <span class="n">eval_command</span><span class="p">,</span>
+    <span class="s1">&#39;exit&#39;</span><span class="p">:</span> <span class="n">exit_command</span><span class="p">,</span>
+    <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="n">empty_command</span><span class="p">,</span>
+<span class="p">}</span>
+    
+<span class="k">def</span> <span class="nf">repl</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; &#39;</span><span class="p">)</span>
+            <span class="n">command</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">split_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">func</span> <span class="o">=</span> <span class="n">commands</span><span class="p">[</span><span class="n">command</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Invalid command.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">func</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span>
+                
+    <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bye&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
@@ -18876,6 +19283,860 @@ Bye!
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Parsowanie-Log&#243;w-Apacha">Parsowanie Log&#243;w Apacha<a class="anchor-link" href="#Parsowanie-Log&#243;w-Apacha">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#9734;-Suma-bajt&#243;w">&#9734; Suma bajt&#243;w<a class="anchor-link" href="#&#9734;-Suma-bajt&#243;w">&#182;</a></h2><p>Chcemy sprawdzić, ile bajtów danych zostało przesłanych, sumując ostatnią kolumnę danych z pliku logów serwera Apache.
+W ostatniej kolumnie zamiast liczby może pojawić się <code>-</code>.
+Taki wiersz należy zignorować.</p>
+<p>Plik logów Apache może wyglądać następująco:</p>
+
+<pre><code>81.107.39.38 - ... "GET /ply/ HTTP/1.1" 200 7587
+81.107.39.38 - ... "GET /favicon.ico HTTP/1.1" 404 133
+81.107.39.38 - ... "GET /ply/bookplug.gif HTTP/1.1" 200 23903
+81.107.39.38 - ... "GET /ply/ply.html HTTP/1.1" 200 97238
+81.107.39.38 - ... "GET /ply/example.html HTTP/1.1" 200 2359
+66.249.72.134 - ... "GET /index.html HTTP/1.1" 200 4447
+81.107.39.38 -  ... "GET /ply/ HTTP/1.1" 304 -
+
+</code></pre>
+<p>W repozytorium znajduje się plik <code>apache.log</code>, który należy przetworzyć.</p>
+<p>Pliki logów mogą ważyć bardzo dużo.
+W związku z tym wczytanie całego pliku do pamięci nie jest najlepszym pomysłem.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie-">Rozwi&#261;zanie <a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">bytes_as_str</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">bytes_as_str</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">bytes_as_str</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#9733;-Podej&#347;cie-potokowe">&#9733; Podej&#347;cie potokowe<a class="anchor-link" href="#&#9733;-Podej&#347;cie-potokowe">&#182;</a></h2><p>Rozwiąż poprzednie zadanie w sposób potokowy, tzn. używając kilka wyrażeń listowych.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hint-">Hint <a class="tocSkip" /><a class="anchor-link" href="#Hint-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">bytescolumn</span> <span class="o">=</span> <span class="o">...</span>  <span class="c1"># &#39;7587&#39;, &#39;133&#39; lub &#39;-&#39; itd.</span>
+<span class="nb">bytes</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># 7587, 133 itd., `-` są pomijane</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">bytes</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie-">Rozwi&#261;zanie <a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;apache.log&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wwwlog</span><span class="p">:</span>
+    <span class="n">bytecolumn</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">wwwlog</span><span class="p">]</span>
+    <span class="nb">bytes</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bytecolumn</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;-&#39;</span><span class="p">]</span>
+    <span class="n">sum_</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">bytes</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sum_</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total: 430336
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#9734;&#9733;-apache2csv.py">&#9734;&#9733; apache2csv.py<a class="anchor-link" href="#&#9734;&#9733;-apache2csv.py">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Napisz skrypt <code>apache2csv.py</code>, który konwertuje logi Apacha do pliku .csv.
+Dzięki temu będzie można wczytać logi do Excela.</p>
+<p>Skrypt powinien przyjmować dwa argumenty: nazwę pliku wejściowego oraz wyjściowego. Jeżeli skrypt jest wywołany w zły sposób, powinna wyświetlić się pomoc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Kod-pocz&#261;tkowy">Kod pocz&#261;tkowy<a class="tocSkip" /><a class="anchor-link" href="#Kod-pocz&#261;tkowy">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">FIELD_NAMES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;ip&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;method&#39;</span><span class="p">,</span> 
+    <span class="c1"># &#39;url&#39;, </span>
+    <span class="c1"># &#39;protocol&#39;, </span>
+    <span class="s1">&#39;response_code&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;content_length&#39;</span>
+<span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie">Rozwi&#261;zanie<a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">writefile</span> apache2csv.py
+#!/usr/bin/env python
+import sys
+    
+
+def display_help():
+    print(&quot;Usage: apache2csv.py input_filename output_filename&quot;)
+    
+    
+def split_line(line):
+    parts = line.split()
+    return {
+        &#39;ip&#39;: parts[0],
+        &#39;datetime&#39;: parts[3][1:] + &#39; &#39; + parts[4][:-1],
+        &#39;response_code&#39;: parts[8],
+        &#39;content_length&#39;: parts[9],
+        &#39;method&#39;: parts[5][1:],
+        &#39;url&#39;: parts[6],
+        &#39;protocol&#39;: parts[7][:-1],
+    }
+
+
+FIELD_NAMES = [
+    &#39;ip&#39;, 
+    &#39;datetime&#39;, 
+    &#39;method&#39;, 
+    &#39;url&#39;, 
+    &#39;protocol&#39;, 
+    &#39;response_code&#39;, 
+    &#39;content_length&#39;
+]   
+
+        
+def run(input_filename, output_filename):
+    if input_filename is None:
+        input_stream = sys.stdin
+    else:
+        input_stream = open(input_filename, &#39;r&#39;)
+    
+    if output_filename is None:
+        output_stream = sys.stdout
+    else:
+        output_stream = open(output_filename, &#39;w&#39;)
+    
+    with input_stream, output_stream:
+        for line in input_stream:
+            row = split_line(line)
+            columns = [row[field] for field in FIELD_NAMES]
+            csv_row = &#39;,&#39;.join(columns)
+            output_stream.write(csv_row + &#39;\n&#39;)
+    
+    
+def main(argv):
+    try:
+        input_filename = argv[1]
+    except IndexError:
+        input_filename = None
+        
+    try:
+        output_filename = argv[2]
+    except IndexError:
+        output_filename = None
+    
+    if len(argv) &gt; 3:
+        display_help()
+    else:
+        run(input_filename, output_filename)
+    
+
+if __name__ == &#39;__main__&#39;:
+    main(sys.argv)
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting apache2csv.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">run</span> -i apache2csv.py apache.log apache.csv
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Oczekiwane-zachowanie">Oczekiwane zachowanie<a class="tocSkip" /><a class="anchor-link" href="#Oczekiwane-zachowanie">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>chmod <span class="m">700</span> apache2csv.py
+<span class="o">!</span>./apache2csv.py apache.log apache.csv
+<span class="o">!</span>cat apache.csv
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/static/style.css,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/static/logo.png,HTTP/1.0,200,293644
+64.242.88.20,07/Mar/2017:16:24:30 -0800,GET,/login,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:48 -0800,POST,/login?next=/dashboard/,HTTP/1.0,302,-
+64.242.88.20,07/Mar/2017:16:24:49 -0800,GET,/dashboard,HTTP/1.0,200,2002
+64.242.88.20,07/Mar/2017:16:24:59 -0800,GET,/search?q=documentation,HTTP/1.0,200,2002
+64.242.88.20,07/Mar/2017:16:25:13 -0800,GET,/doc/main,HTTP/1.0,200,2345
+64.242.88.20,07/Mar/2017:16:25:23 -0800,GET,/doc/deployment,HTTP/1.0,200,28734
+64.242.88.20,07/Mar/2017:16:26:56 -0800,GET,/doc/authentication,HTTP/1.0,200,22345
+65.123.12.28,07/Mar/2017:16:27:32 -0800,GET,/,HTTP/1.1,200,3399
+64.242.88.20,07/Mar/2017:16:28:05 -0800,GET,/doc/faq,HTTP/1.0,200,58462
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/invalid-url,HTTP/1.0,404,7218
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>./apache2csv.py &lt; apache.log
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/static/style.css,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/static/logo.png,HTTP/1.0,200,293644
+64.242.88.20,07/Mar/2017:16:24:30 -0800,GET,/login,HTTP/1.0,200,3395
+64.242.88.20,07/Mar/2017:16:24:48 -0800,POST,/login?next=/dashboard/,HTTP/1.0,302,-
+64.242.88.20,07/Mar/2017:16:24:49 -0800,GET,/dashboard,HTTP/1.0,200,2002
+64.242.88.20,07/Mar/2017:16:24:59 -0800,GET,/search?q=documentation,HTTP/1.0,200,2002
+64.242.88.20,07/Mar/2017:16:25:13 -0800,GET,/doc/main,HTTP/1.0,200,2345
+64.242.88.20,07/Mar/2017:16:25:23 -0800,GET,/doc/deployment,HTTP/1.0,200,28734
+64.242.88.20,07/Mar/2017:16:26:56 -0800,GET,/doc/authentication,HTTP/1.0,200,22345
+65.123.12.28,07/Mar/2017:16:27:32 -0800,GET,/,HTTP/1.1,200,3399
+64.242.88.20,07/Mar/2017:16:28:05 -0800,GET,/doc/faq,HTTP/1.0,200,58462
+64.242.88.20,07/Mar/2017:16:24:16 -0800,GET,/invalid-url,HTTP/1.0,404,7218
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jak zabrać się za to ćwiczenie?
+Podzielimy je na podzadania.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-split_line(line)">&#9734; split_line(line)<a class="anchor-link" href="#&#9734;-split_line(line)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">split_line</span><span class="p">(</span><span class="s1">&#39;64.242.88.20 - - [07/Mar/2017:16:24:49 -0800] &quot;GET /dashboard HTTP/1.0&quot; 200 2002</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[39]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;content_length&#39;: &#39;2002&#39;,
+ &#39;datetime&#39;: &#39;07/Mar/2017:16:24:49 -0800&#39;,
+ &#39;ip&#39;: &#39;64.242.88.20&#39;,
+ &#39;method&#39;: &#39;GET&#39;,
+ &#39;protocol&#39;: &#39;HTTP/1.0&#39;,
+ &#39;response_code&#39;: &#39;200&#39;,
+ &#39;url&#39;: &#39;/dashboard&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">split_line</span><span class="p">(</span><span class="s1">&#39;64.242.88.20 - - [07/Mar/2017:16:24:48 -0800] &quot;POST /login?next=/dashboard/ HTTP/1.0&quot; 302 -&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[40]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;content_length&#39;: &#39;-&#39;,
+ &#39;datetime&#39;: &#39;07/Mar/2017:16:24:48 -0800&#39;,
+ &#39;ip&#39;: &#39;64.242.88.20&#39;,
+ &#39;method&#39;: &#39;POST&#39;,
+ &#39;protocol&#39;: &#39;HTTP/1.0&#39;,
+ &#39;response_code&#39;: &#39;302&#39;,
+ &#39;url&#39;: &#39;/login?next=/dashboard/&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Hint-">Hint <a class="tocSkip" /><a class="anchor-link" href="#Hint-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ip</span> <span class="o">=</span> <span class="s1">&#39;64.242.88.20&#39;</span>
+<span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;POST&#39;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="n">ip</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">method</span><span class="p">}</span>
+<span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;ip&#39;: &#39;64.242.88.20&#39;, &#39;method&#39;: &#39;POST&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;64.242.88.20&#39;</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;POST&#39;</span>
+<span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;ip&#39;: &#39;64.242.88.20&#39;, &#39;method&#39;: &#39;POST&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;64.242.88.20&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;ip&#39;: &#39;64.242.88.20&#39;, &#39;method&#39;: &#39;POST&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-run(input_filename,-output_filename)">&#9734; run(input_filename, output_filename)<a class="anchor-link" href="#&#9734;-run(input_filename,-output_filename)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>otwiera pliki wejściowy i wyjściowy</li>
+<li>iteruje po każdej linii z pliku wejściowego</li>
+<li>dla każdej lini wywołuje napisaną wcześniej funkcję <code>split_line</code></li>
+<li>ze słownika zwróconego przez tą funkcję wybiera jedynie te kolumny, które określono w stałej <code>FIELD_NAMES</code></li>
+<li>konkatenuje wszystkie dane i rozdziela je przecinkami (<code>','.join(columns)</code>)</li>
+<li>dodaje tak utworzony nowy wiersz do pliku .csv</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;apache.log&#39;</span><span class="p">,</span> <span class="s1">&#39;apache.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Hint-">Hint <a class="tocSkip" /><a class="anchor-link" href="#Hint-">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;asdf</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;qwer&#39;</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="o">!</span>cat file.txt
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asdf
+qwer</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">log_record</span> <span class="o">=</span> <span class="n">split_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">log_record</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">field_name</span> <span class="ow">in</span> <span class="n">FIELD_NAMES</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-main(argv)">&#9734; main(argv)<a class="anchor-link" href="#&#9734;-main(argv)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>dokonuje sprawdzenia, ile argumentów przekazano w wywołaniu programu</li>
+<li>wyświetla pomoc, jeżeli liczba argumentów się nie zgadza</li>
+<li>w przeciwnym razie wywołuje napisaną wcześniej funkcję <code>run</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;apache2csv.py&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Usage: apache2csv.py input_filename output_filename
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;apache2csv.py&#39;</span><span class="p">,</span> <span class="s1">&#39;invalid-number-of-arguments&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Usage: apache2csv.py input_filename output_filename
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">main</span><span class="p">([</span><span class="s1">&#39;apache2csv.py&#39;</span><span class="p">,</span> <span class="s1">&#39;apache.log&#39;</span><span class="p">,</span> <span class="s1">&#39;apache.csv&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9733;-argumenty-opcjonalne">&#9733; argumenty opcjonalne<a class="anchor-link" href="#&#9733;-argumenty-opcjonalne">&#182;</a></h3><p>Załóż, że obie nazwy plików są opcjonalne.
+Jeżeli nie zostaną przekazane, powinniśmy czytać ze standardowego wejścia (<code>sys.stdin</code>) i pisać na standardowe wyjście (<code>sys.stdout</code>).
+Jeżeli podana jest nazwa tylko jednego pliku, należy założyć, że jest nazwa pliku wejściowego.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9733;-biblioteka-csv">&#9733; biblioteka csv<a class="anchor-link" href="#&#9733;-biblioteka-csv">&#182;</a></h3><p>W standardowej bibliotece Pythona znajduje się moduł <a href="https://docs.python.org/2/library/csv.html"><code>csv</code></a>, który służy do czytania i tworzenia plików <code>.csv</code>.
+Ta biblioteka dba m.in. o poprawne escapowanie znaków specjalnych.
+Zauważ, że jeżeli gdziekolwiek w logach Apacha pojawi się przecinek, on nie jest escapowany w wyjściowym pliku .csv.
+W efekcie, zostanie on potraktowany jako rozpoczęcie nowej kolumny.
+Zastąp ręczne generowanie plików .csv tą biblioteką.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>

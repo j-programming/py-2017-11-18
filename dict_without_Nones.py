@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-def dict_without_NonesFor(**kwargs):
+def dict_without_NonesFor(**b):
     if len(kwargs) == 0:
         raise ValueError("Err, give at least one arg")
     dic={}
