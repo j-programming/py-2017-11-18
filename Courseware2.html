@@ -17082,7 +17082,7 @@ Jej użycie powoduje, że wystarczy zdefiniować metody <code>__le__</code> i <c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[170]:</div>
+<div class="prompt input_prompt">In&nbsp;[202]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -17137,7 +17137,7 @@ Jej użycie powoduje, że wystarczy zdefiniować metody <code>__le__</code> i <c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[175]:</div>
+<div class="prompt input_prompt">In&nbsp;[203]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">LearnerMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -17339,7 +17339,7 @@ Katalog mymodules musi być umieszczony w jednym z katalogów znajdujących się
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[206]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -17356,7 +17356,7 @@ Katalog mymodules musi być umieszczony w jednym z katalogów znajdujących się
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[206]:</div>
 
 
 
@@ -17397,6 +17397,39 @@ Katalog mymodules musi być umieszczony w jednym z katalogów znajdujących się
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;module &#39;os&#39; from &#39;/usr/lib/python2.7/os.pyc&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[207]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[207]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;/home/chris/courses/py-2017-11-18&#39;</pre>
 </div>
 
 </div>
@@ -17473,6 +17506,40 @@ Katalog mymodules musi być umieszczony w jednym z katalogów znajdujących się
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;module &#39;posixpath&#39; from &#39;/usr/lib/python2.7/posixpath.pyc&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[208]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">getcwd</span>
+<span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[208]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;/home/chris/courses/py-2017-11-18&#39;</pre>
 </div>
 
 </div>
@@ -17752,14 +17819,14 @@ Aktywacji trzeba dokonać w każdym terminalu osobno.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#9734;-&#262;wiczenie">&#9734; &#262;wiczenie<a class="anchor-link" href="#&#9734;-&#262;wiczenie">&#182;</a></h2><p>Stwórz dwa virtualenvy.</p>
-<p>W pierwszym zainstaluj dowolną wersję Pythona 2 oraz bibliotekę <code>python-cjson</code> w wersji 1.2.1.</p>
-<p>W drugim zainstaluj dowolną wersję Pythona 2, ale inną niż poprzednio.
-Dodatkowo, zainstaluj tę samą bibliotekę co w pierwszym venvie, ale w wersji 1.2.0.</p>
+<p>W pierwszym zainstaluj dowolną wersję Pythona 2 oraz bibliotekę <code>flask</code> w wersji 0.12.0.</p>
+<p>W drugim zainstaluj dowolną wersję Pythona 2.
+Dodatkowo, zainstaluj tę samą bibliotekę co w pierwszym venvie, ale w wersji 0.12.1.</p>
 <p>Przydatne polecenia:</p>
 <div class="highlight"><pre><span></span>python --version
-pip freeze <span class="p">|</span> grep cjson
-python -c <span class="s2">&quot;import cjson&quot;</span>
-python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</span>
+pip freeze <span class="p">|</span> grep flask
+python -c <span class="s2">&quot;import flask&quot;</span>
+python -c <span class="s2">&quot;import flask; print(cjson.__version__)&quot;</span>
 </pre></div>
 
 </div>
@@ -17783,7 +17850,7 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[215]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
@@ -17896,6 +17963,44 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="re.search">re.search<a class="anchor-link" href="#re.search">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[220]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;cdefg&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[221]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;cdefg&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">,</span> <span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -18216,7 +18321,7 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[216]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;abc.e&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
@@ -18287,13 +18392,14 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[217]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab(cd)?e&#39;</span><span class="p">,</span> <span class="s1">&#39;abe&#39;</span><span class="p">)</span>
 <span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab(cd)?e&#39;</span><span class="p">,</span> <span class="s1">&#39;abcde&#39;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab(cd)?e&#39;</span><span class="p">,</span> <span class="s1">&#39;abfe&#39;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab(cd)?e&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdfe&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab(cd)?e&#39;</span><span class="p">,</span> <span class="s1">&#39;abce&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -18375,6 +18481,19 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[218]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab[a-zA-Z0-9]e&#39;</span><span class="p">,</span> <span class="s1">&#39;abZe&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -18385,7 +18504,7 @@ python -c <span class="s2">&quot;import cjson; print(cjson.__version__)&quot;</s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[219]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;ab[^cd]e&#39;</span><span class="p">,</span> <span class="s1">&#39;abce&#39;</span><span class="p">)</span>
@@ -18740,6 +18859,181 @@ Dodaj nazwane grupy tak, aby można było wyciągnąć określone dane.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">regex3</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;123456789&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;group1&#39;</span><span class="p">:</span> <span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="s1">&#39;group2&#39;</span><span class="p">:</span> <span class="s1">&#39;456&#39;</span><span class="p">,</span> <span class="s1">&#39;group3&#39;</span><span class="p">:</span> <span class="s1">&#39;789&#39;</span><span class="p">}</span>
 <span class="k">assert</span>     <span class="n">regex3</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;+1 345 111 222&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;group1&#39;</span><span class="p">:</span> <span class="s1">&#39;345&#39;</span><span class="p">,</span> <span class="s1">&#39;group2&#39;</span><span class="p">:</span> <span class="s1">&#39;111&#39;</span><span class="p">,</span> <span class="s1">&#39;group3&#39;</span><span class="p">:</span> <span class="s1">&#39;222&#39;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-Adres-email">&#9734; Adres email<a class="anchor-link" href="#&#9734;-Adres-email">&#182;</a></h3><p>Zakładamy, że w adresie email po małpie musi się pojawić dokładnie jedna kropka.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie-">Rozwi&#261;zanie <a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pattern3</span> <span class="o">=</span> <span class="s1">&#39;(\+[0-9]{1,2}[ -]?)?[0-9]{3}[ -]?[0-9]{3}[ -]?[0-9]{3}$&#39;</span>
+<span class="n">regex3</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Oczekiwane-zachowanie-">Oczekiwane zachowanie <a class="tocSkip" /><a class="anchor-link" href="#Oczekiwane-zachowanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;john@smith.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;john.smith@gmail.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;j.o.h.n@smith.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;j.o.h.n+smith@smith.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;j.o.h.n+smi+th@smith.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;jo@hn@smith.com&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;jo@hn@com&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern4</span><span class="p">,</span> <span class="s1">&#39;jo@hn@sm.ith.com&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">regex4</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;john@smith.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;smith.com&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;subdomain&#39;</span><span class="p">:</span> <span class="s1">&#39;smith&#39;</span><span class="p">}</span>
+<span class="k">assert</span>     <span class="n">regex4</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;j.o.h.n+tag@smith.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;j.o.h.n+tag&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;smith.com&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;subdomain&#39;</span><span class="p">:</span> <span class="s1">&#39;smith&#39;</span><span class="p">}</span>
+<span class="k">assert</span>     <span class="n">regex4</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;j.o.h.n+ta+g@smith.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;j.o.h.n+ta+g&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;ta+g&#39;</span><span class="p">,</span> <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;smith.com&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;com&#39;</span><span class="p">,</span> <span class="s1">&#39;subdomain&#39;</span><span class="p">:</span> <span class="s1">&#39;smith&#39;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-Data">&#9734; Data<a class="anchor-link" href="#&#9734;-Data">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie-">Rozwi&#261;zanie <a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Oczekiwane-zachowanie-">Oczekiwane zachowanie <a class="tocSkip" /><a class="anchor-link" href="#Oczekiwane-zachowanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="s1">&#39;Sun Oct 14 13:47:03&#39;</span><span class="p">)</span>
+<span class="k">assert</span>     <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="s1">&#39;Mon Dec 14 13:47:03&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="s1">&#39;Sun Oct 14 13:47:3&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="s1">&#39;Sun Aaa 14 13:47:03&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern5</span><span class="p">,</span> <span class="s1">&#39;Sun Oct 40 13:47:03&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span>     <span class="n">regex5</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;Sun Oct 14 13:47:03&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;day_of_week&#39;</span><span class="p">:</span> <span class="s1">&#39;Sun&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">:</span> <span class="s1">&#39;14&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">:</span> <span class="s1">&#39;13&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">:</span> <span class="s1">&#39;47&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">:</span> <span class="s1">&#39;03&#39;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#9734;-HTML">&#9734; HTML<a class="anchor-link" href="#&#9734;-HTML">&#182;</a></h3><p>Napisz funkcję <code>parse</code>, która przyjmuje otwierający tag HTML jako napis i zwraca informacje o tym tagu.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rozwi&#261;zanie-">Rozwi&#261;zanie <a class="tocSkip" /><a class="anchor-link" href="#Rozwi&#261;zanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Oczekiwane-zachowanie-">Oczekiwane zachowanie <a class="tocSkip" /><a class="anchor-link" href="#Oczekiwane-zachowanie-">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;html&gt;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;invalid&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;html key=value&gt;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;html key=&quot;value&quot;&gt;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;html key=&quot;value&quot; key2=value2&gt;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">})</span>
+<span class="k">assert</span> <span class="n">parse</span><span class="p">(</span><span class="s1">&#39;&lt;html key=&quot;value&quot; keyWithoutValue&gt;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;keyWithoutValue&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
 </pre></div>
 
 </div>
